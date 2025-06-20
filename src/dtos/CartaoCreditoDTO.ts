@@ -1,4 +1,4 @@
-export interface CartaoCreditoDTO {
+export type CartaoCreditoDTO = {
   id?: number;
   descricao: string;
   bandeira: string;
@@ -6,4 +6,4 @@ export interface CartaoCreditoDTO {
   vencimento: number;
   limiteTotal: number;
   limiteLivre: number;
-}
+};

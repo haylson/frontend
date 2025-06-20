@@ -11,6 +11,7 @@ export async function criarCartao(cartao: CartaoCreditoDTO): Promise<void> {
 }
 
 export async function atualizarCartao(cartao: CartaoCreditoDTO): Promise<void> {
+  if (!cartao.id) throw new Error("Cartão precisa de ID para atualizar.");
   await api.put(`/cartoes/${cartao.id}`, cartao);
 }
 
