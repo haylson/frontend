@@ -1,39 +1,164 @@
-body {
-  background-color: white !important;
+/* Reset básico */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-.table-hover tbody tr:hover {
+/* Sidebar padrão */
+.sidebar {
+  width: 240px;
+  position: fixed;
+  top: 56px; /* altura do header */
+  left: 0;
+  bottom: 0;
   background-color: #f8f9fa;
-  transition: background-color 0.2s;
+  border-right: 1px solid #dee2e6;
+  transition: transform 0.3s ease;
+  z-index: 1040;
 }
 
-.badge-bandeira {
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
+.sidebar:not(.open) {
+  transform: translateX(-100%);
 }
 
-@media(max-width: 576px) {
-  .table thead {
-    display: none;
-  }
-  .table, .table tbody, .table tr, .table td {
-    display: block;
-    width: 100%;
-  }
-  .table tr {
-    margin-bottom: 1rem;
-    border: 1px solid #dee2e6;
-    border-radius: 0.375rem;
-    overflow: hidden;
-  }
-  .table td {
-    padding: 0.5rem 0.75rem;
-    position: relative;
-  }
-  .table td::before {
-    content: attr(data-label);
-    font-weight: 600;
-    display: block;
-  }
+/* Main ajustável */
+.main-content {
+  margin-top: 56px;
+  padding: 1rem;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-open .main-content {
+  margin-left: 240px;
+}
+
+/* Links da sidebar */
+.sidebar .nav-link {
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.sidebar .nav-link.active {
+  background-color: #0d6efd;
+  color: white;
+  font-weight: bold;
+}
+
+/* TOASTIFY ajustado */
+.Toastify__toast {
+  font-size: 0.9rem;
+}
+
+/* -------------------- */
+/* 🎨 TEMA ESCURO COMPLETO */
+/* -------------------- */
+
+body.dark-theme {
+  background-color: #1e1e2f;
+  color: #f1f1f1;
+}
+
+body.dark-theme .main-content,
+body.dark-theme .container,
+body.dark-theme .page {
+  background-color: #1e1e2f;
+  color: #f1f1f1;
+}
+
+/* Navbar e sidebar escuras */
+body.dark-theme .navbar,
+body.dark-theme .sidebar {
+  background-color: #2c2f3e !important;
+  color: #ffffff;
+  border-color: #444;
+}
+
+/* Links */
+body.dark-theme .nav-link {
+  color: #0d6efd; /* azul padrão do Bootstrap */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body.dark-theme .nav-link:hover {
+  background-color: rgba(13, 110, 253, 0.1);
+  color: #0a58ca;
+}
+
+body.dark-theme .nav-link.active {
+  background-color: #0d6efd;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Tabelas */
+body.dark-theme .table,
+body.dark-theme .table th,
+body.dark-theme .table td {
+  background-color: #2c2f3e;
+  color: #f1f1f1;
+  border-color: #555;
+}
+
+/* Formulários */
+body.dark-theme .form-control,
+body.dark-theme .btn,
+body.dark-theme .input-group-text {
+  background-color: #2c2f3e;
+  color: #ffffff;
+  border-color: #444;
+}
+
+body.dark-theme .form-control::placeholder {
+  color: #aaaaaa;
+}
+
+/* Toastify */
+body.dark-theme .Toastify__toast {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+/* Botões escuros com hover */
+body.dark-theme .btn-outline-secondary:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+body.dark-theme .btn-outline-danger:hover {
+  background-color: #a94442;
+  color: #fff;
+}
+
+/* Títulos de agrupamento como "Vencimento: dia 7" */
+body.dark-theme .cartao-group-title {
+  color: #ffffff;
+}
+
+/* Mantém os botões padrão do Bootstrap com contraste correto */
+body.dark-theme .btn-primary {
+  background-color: #0d6efd;
+  color: #fff;
+  border-color: #0d6efd;
+}
+
+body.dark-theme .btn-outline-primary {
+  color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+body.dark-theme .btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+body.dark-theme .btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+body.dark-theme .btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
 }
